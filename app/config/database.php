@@ -55,7 +55,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'w_laravel_ticket',
+			'database'  => 'd_ticket',
 			'username'  => 'root',
 			'password'  => 'root',
 			'charset'   => 'utf8',

@@ -15,7 +15,7 @@ class UsersTableSeeder extends Seeder {
                 'id'          => '10000',
                 'email'       => 'demo@demo.com',
                 'password'    => Hash::make('demo'),
-                'name'        => '喜柚',
+                'name'        => '卡卡罗特',
                 'mobile'      => '13000000000',
                 'bn'          => 'CS001',
                 'company'     => '常德卡卡罗特网络科技有限公司',
