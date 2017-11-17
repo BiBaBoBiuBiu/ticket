@@ -10,7 +10,7 @@
                     class="badge bg-yellow">{{ $menucount['inprogress'] }}</span><i class="fa fa-folder"></i>处理中</a>
         <a href="{{ url('admin/tickets/closed') }}"
            class="btn btn-app {{ Ekko::isActiveRoute('managetickets.closed') }}"><span
-                    class="badge bg-green">{{ $menucount['closed'] }}</span><i class="fa fa-check-square"></i>关闭</a>
+                    class="badge bg-green">{{ $menucount['closed'] }}</span><i class="fa fa-check-square"></i>已关闭</a>
         <a href="{{ url('admin/tickets/reopened') }}"
            class="btn btn-app {{ Ekko::isActiveRoute('managetickets.reopened') }}"><span
                     class="badge bg-red">{{ $menucount['reopened'] }}</span><i class="fa fa-history"></i>已回复</a>

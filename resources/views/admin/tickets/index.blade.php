@@ -2,12 +2,6 @@
 
 @section('content')
     <div class="content-wrapper">
-        <section class="content-header">
-            <h1>
-                工单
-            </h1>
-        </section>
-
         <section class="content">
             @include('admin.layouts.partials.alerts')
             @include('admin.tickets.buttons')
@@ -29,15 +23,15 @@
                             <table class="table table-hover" id="tickettable">
                                 <thead>
                                 <tr>
-                                    <th>Ticket ID</th>
-                                    <th>Title</th>
-                                    <th>User</th>
-                                    <th>Comments</th>
-                                    <th>Category</th>
-                                    <th>Status</th>
-                                    <th>Priority</th>
-                                    <th>Created</th>
-                                    <th>Last Updated</th>
+                                    <th>ID</th>
+                                    <th>标题</th>
+                                    <th>用户</th>
+                                    <th>内容</th>
+                                    <th>类别</th>
+                                    <th>状态</th>
+                                    <th>等级</th>
+                                    <th>创建时间</th>
+                                    <th>更新时间</th>
                                 </tr>
                                 </thead>
                                 <tbody>
