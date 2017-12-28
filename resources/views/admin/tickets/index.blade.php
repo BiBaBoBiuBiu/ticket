@@ -47,19 +47,19 @@
                                         <td><span class="badge">{{ count($ticket->comments) }}</span></td>
                                         <td>
                                             @foreach ($categories as $category)
-                                                @if ($category->id === $ticket->category_id)
+                                                @if ($category->id == $ticket->category_id)
                                                     {{ $category->name }}
                                                 @endif
                                             @endforeach
                                         </td>
                                         <td>
                                             @foreach ($statuses as $status)
-                                                @if ($status->id === $ticket->status_id)
-                                                    @if ($status->id === 1)
+                                                @if ($status->id == $ticket->status_id)
+                                                    @if ($status->id == 1)
                                                         <span class="label label-info"> {{ $status->name }}</span>
-                                                    @elseif ($status->id === 2)
+                                                    @elseif ($status->id == 2)
                                                         <span class="label label-warning"> {{ $status->name }}</span>
-                                                    @elseif ($status->id === 3)
+                                                    @elseif ($status->id == 3)
                                                         <span class="label label-success"> {{ $status->name }}</span>
                                                     @else
                                                         <span class="label label-danger"> {{ $status->name }}</span>
@@ -69,10 +69,10 @@
                                         </td>
                                         <td>
                                             @foreach ($prioritys as $priority)
-                                                @if ($priority->id === $ticket->priority_id)
-                                                    @if ($priority->id === 1)
+                                                @if ($priority->id == $ticket->priority_id)
+                                                    @if ($priority->id == 1)
                                                         <p class="bg-danger"> {{ $priority->name }}</p>
-                                                    @elseif ($priority->id === 2)
+                                                    @elseif ($priority->id == 2)
                                                         <p class="bg-success"> {{ $priority->name }}</p>
                                                     @else
                                                         <p class="bg-info"> {{ $priority->name }}</p>
@@ -94,13 +94,13 @@
     </div>
 
     @push('scripts')
-    <script>
-        $(function () {
-            $("#tickettable").DataTable({
-                "order": [[0, "asc"]]
+        <script>
+            $(function () {
+                $("#tickettable").DataTable({
+                    "order": [[0, "asc"]]
+                });
             });
-        });
-    </script>
+        </script>
     @endpush
 
 @endsection

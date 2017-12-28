@@ -10,7 +10,7 @@
             <section class="content-header">
                 <h1>
                     {{ site_name() }}
-                    <small>My profile</small>
+                    <small>个人信息</small>
                 </h1>
             </section>
 
@@ -32,11 +32,11 @@
 
                                 <ul class="list-group list-group-unbordered">
                                     <li class="list-group-item">
-                                        <b>Location</b> <a class="pull-right">{{ $account->location }}</a>
+                                        <b>位置</b> <a class="pull-right">{{ $account->location }}</a>
                                     </li>
                                     <li class="list-group-item">
-                                        <b>Website</b> <a class="pull-right"
-                                                          href="{{ $account->website }}">{{ $account->website }}</a>
+                                        <b>网站</b> <a class="pull-right"
+                                                     href="{{ $account->website }}">{{ $account->website }}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -46,10 +46,10 @@
                     <div class="col-md-9">
                         <div class="nav-tabs-custom">
                             <ul class="nav nav-tabs">
-                                <li class="active"><a href="#profile" data-toggle="tab">Profile Information</a></li>
-                                <li><a href="#avatar" data-toggle="tab">Manage Your Avatar</a></li>
-                                <li><a href="#password" data-toggle="tab">Change password</a></li>
-                                <li><a href="#deleteaccount" data-toggle="tab">Delete account</a></li>
+                                <li class="active"><a href="#profile" data-toggle="tab">个人信息</a></li>
+                                <li><a href="#avatar" data-toggle="tab">更改头像</a></li>
+                                <li><a href="#password" data-toggle="tab">更改密码</a></li>
+                                <li><a href="#deleteaccount" data-toggle="tab">删除账号</a></li>
                             </ul>
                             <div class="tab-content">
                                 <div class="active tab-pane" id="profile">
@@ -58,7 +58,7 @@
                                           class="form-horizontal">
                                         {!! csrf_field() !!}
                                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                            <label for="name" class="col-sm-2 control-label">Email</label>
+                                            <label for="name" class="col-sm-2 control-label">邮箱</label>
                                             <div class="col-sm-4">
                                                 <input type="text" name="email" id="email"
                                                        value="{{ $account->email ?: old('email') }}" autofocus=""
@@ -69,7 +69,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                            <label for="fullname" class="col-sm-2 control-label">Name</label>
+                                            <label for="fullname" class="col-sm-2 control-label">姓名</label>
                                             <div class="col-sm-4">
                                                 <input type="text" name="fullname" id="name"
                                                        value="{{ $account->fullname ?: old('fullname') }}"
@@ -80,7 +80,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group{{ $errors->has('gender') ? ' has-error' : '' }}">
-                                            <label for="name" class="col-sm-2 control-label">Gender</label>
+                                            <label for="name" class="col-sm-2 control-label">性别</label>
                                             <div class="col-sm-4">
                                                 <label class="radio col-sm-4">
                                                     <input type="radio"
@@ -88,7 +88,7 @@
                                                            {{ 'checked="checked"' }}
                                                            @endif
 
-                                                           name="gender" value="M" data-toggle="radio"><span>Male</span>
+                                                           name="gender" value="M" data-toggle="radio"><span>男生</span>
                                                 </label>
                                                 <label class="radio col-sm-4">
                                                     <input type="radio"
@@ -96,7 +96,7 @@
                                                            {{ 'checked="checked"' }}
                                                            @endif
                                                            name="gender" value="F"
-                                                           data-toggle="radio"><span>Female</span>
+                                                           data-toggle="radio"><span>女生</span>
                                                 </label>
                                                 @if ($errors->has('gender'))
                                                     <span class="help-block">{{ $errors->first('gender') }}</span>
@@ -104,25 +104,25 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="location" class="col-sm-2 control-label">Location</label>
+                                            <label for="location" class="col-sm-2 control-label">位置</label>
                                             <div class="col-sm-4">
                                                 <input type="text" name="location" id="location"
                                                        value="{{ $account->location ?: old('location') }}"
-                                                       class="form-control" placeholder="Lagos, Nigeria">
+                                                       class="form-control" placeholder="Changde">
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="website" class="col-sm-2 control-label">Website</label>
+                                            <label for="website" class="col-sm-2 control-label">网站</label>
                                             <div class="col-sm-4">
                                                 <input type="text" name="website" id="website"
                                                        value="{{ $account->website ?: old('website') }}"
-                                                       class="form-control" placeholder="http://goodheads.io">
+                                                       class="form-control" placeholder="http://example.com">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-sm-offset-2 col-sm-8">
                                                 <button type="submit" class="btn bg-purple"><i class="fa fa-pencil"></i>
-                                                    Update Profile
+                                                    更新
                                                 </button>
                                             </div>
                                         </div>
@@ -135,7 +135,7 @@
                                     <form role="form" method="POST" action="{{ route('account.avatar') }}"
                                           enctype="multipart/form-data" class="form-horizontal">
                                         <div class="form-group">
-                                            <label for="gravatar" class="col-sm-2 control-label">Gravatar</label>
+                                            <label for="gravatar" class="col-sm-2 control-label">头像</label>
                                             <div class="col-sm-4">
                                                 <img src="{{ Auth::user()->getAvatarUrl() }}" width="100" height="100"
                                                      class="profile">
@@ -153,7 +153,7 @@
                                         <div class="form-group">
                                             <div class="col-sm-offset-2 col-sm-8">
                                                 <button type="submit" class="btn bg-purple"><i class="fa fa-pencil"></i>
-                                                    Change Avatar
+                                                    更新
                                                 </button>
                                             </div>
                                         </div>
@@ -168,7 +168,7 @@
                                           class="form-horizontal">
                                         {!! csrf_field() !!}
                                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                            <label for="password" class="col-sm-3 control-label">New Password</label>
+                                            <label for="password" class="col-sm-3 control-label">新密码</label>
                                             <div class="col-sm-4">
                                                 <input type="password" name="password" id="password"
                                                        class="form-control">
@@ -178,8 +178,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                                            <label for="password" class="col-sm-3 control-label">Confirm
-                                                Password</label>
+                                            <label for="password" class="col-sm-3 control-label">确认新密码</label>
                                             <div class="col-sm-4">
                                                 <input type="password" name="password_confirmation"
                                                        id="password_confirmation" class="form-control">
@@ -191,7 +190,7 @@
                                         <div class="form-group">
                                             <div class="col-sm-offset-3 col-sm-4">
                                                 <button type="submit" class="btn bg-purple"><i class="fa fa-lock"></i>
-                                                    Change Password
+                                                    更改
                                                 </button>
                                             </div>
                                         </div>
@@ -204,8 +203,7 @@
                                     <p> You can delete your account, but keep in mind this action is irreversible. </p>
 
                                     <a href="{{ route('account.confirm.delete') }}">
-                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> Delete
-                                            my account
+                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> 删除账户
                                         </button>
                                     </a>
 

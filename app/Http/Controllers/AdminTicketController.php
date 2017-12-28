@@ -77,24 +77,20 @@ class AdminTicketController extends Controller
     public function edit($ticket_id)
     {
         $tickets    = Ticket::where('ticket_id', $ticket_id)->firstOrFail();
-        $categories = Category::lists('name', 'id');
-        $prioritys  = Priority::lists('name', 'id');
-        $statuses   = Status::lists('name', 'id');
+        $categories = Category::pluck('name', 'id');
+        $prioritys  = Priority::pluck('name', 'id');
+        $statuses   = Status::pluck('name', 'id');
 
         return view('admin.tickets.edit', compact('tickets', 'categories', 'statuses', 'prioritys'));
     }
 
     public function show($ticket_id)
     {
-        $ticket = Ticket::where('ticket_id', $ticket_id)->firstOrFail();
-
-        $categories = Category::lists('name', 'id');
-
-        $comments = $ticket->comments;
-
-        $statuses = Status::lists('name', 'id');
-
-        $prioritys = Priority::lists('name', 'id');
+        $ticket     = Ticket::where('ticket_id', $ticket_id)->firstOrFail();
+        $categories = Category::pluck('name', 'id');
+        $comments   = $ticket->comments;
+        $statuses   = Status::pluck('name', 'id');
+        $prioritys  = Priority::pluck('name', 'id');
 
         return view('admin.tickets.show', compact('ticket', 'categories', 'statuses', 'prioritys', 'comments'));
     }
@@ -115,7 +111,7 @@ class AdminTicketController extends Controller
 
         $ticketOwner = $ticket->user;
 
-        $mailer->sendTicketStatusNotification($ticketOwner, $ticket);
+        // $mailer->sendTicketStatusNotification($ticketOwner, $ticket);
 
         return redirect()->route('managetickets.index')->with('success',
             "A ticket with ID: #$ticket->ticket_id has been updated.");

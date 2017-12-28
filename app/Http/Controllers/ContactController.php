@@ -27,9 +27,9 @@ class ContactController extends Controller
         $body      = $request->input('message');
 
         Mail::send('emails.contact', ['body' => $body], function ($message) use ($name, $emailFrom) {
-            $message->from($emailFrom, "From: {$name}");
+            // $message->from($emailFrom, "From: {$name}");
 
-            $message->to(email_to())->subject('Message from Contact Form');
+            // $message->to(email_to())->subject('Message from Contact Form');
         });
 
         return redirect()->route('contact')->with('info', 'Your Message has been dispatched successfully');

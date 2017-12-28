@@ -46,7 +46,7 @@ class TicketsController extends Controller
         ]);
 
         $ticket->status_id = '1';
-        $mailer->sendTicketInformation(Auth::user(), $ticket);
+        // $mailer->sendTicketInformation(Auth::user(), $ticket);
         $ticket->save();
 
         return redirect()->route('tickets.index')->with('success',
@@ -60,7 +60,7 @@ class TicketsController extends Controller
         $ticket->save();
         $ticketOwner = $ticket->user;
 
-        $mailer->sendTicketStatusNotification($ticketOwner, $ticket);
+        // $mailer->sendTicketStatusNotification($ticketOwner, $ticket);
 
         return redirect()->back()->with('info', "Your ticket with ID: #$ticket->ticket_id has been reopened.");
     }

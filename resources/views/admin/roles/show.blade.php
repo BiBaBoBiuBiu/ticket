@@ -7,7 +7,7 @@
     <section class="content-header">
       <h1>
         Admin
-        <small>Roles</small>
+        <small>角色</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="{{ route('admin.dashboard') }}"><i class="fa fa-dashboard"></i> Admin</a></li>
@@ -56,9 +56,9 @@
 				@endif
             </div>
             
-			<a class="btn bg-purple" href="{{ route('roles.edit',$role->id) }}"><i class="fa fa-edit"></i> Edit</a>
+			<a class="btn bg-purple" href="{{ route('roles.edit',$role->id) }}"><i class="fa fa-edit"></i> 编辑</a>
 			{!! Form::open(['method' => 'DELETE','route' => ['roles.destroy', $role->id],'style'=>'display:inline','class'=>'delete']) !!}
-            {{ Form::button('<i class="fa fa-remove"> Delete</i>', array('class'=>'btn btn-danger', 'type'=>'submit')) }}
+            {{ Form::button('<i class="fa fa-remove"> 删除</i>', array('class'=>'btn btn-danger', 'type'=>'submit')) }}
         	{!! Form::close() !!}
         
         </div>
